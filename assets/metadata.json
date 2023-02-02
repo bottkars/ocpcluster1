@@ -1,0 +1,1 @@
+{"clusterName":"ocpcluster1","clusterID":"5a4a67e8-adc8-4ca5-b6fb-768d4ad68ac4","infraID":"ocpcluster1-wqzvs","azure":{"armEndpoint":"https://management.local.azurestack.external","cloudName":"AzureStackCloud","region":"local","resourceGroupName":"","baseDomainResourceGroupName":"dns"}}

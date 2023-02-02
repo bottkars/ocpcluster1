@@ -1,0 +1,6 @@
+/.azure
+/.direnv
+/.openshift_install.log
+**/openshift-install
+/.*.vhd
+/.*.vhd.gz

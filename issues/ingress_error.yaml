@@ -1,0 +1,112 @@
+apiVersion: config.openshift.io/v1
+kind: ClusterOperator
+metadata:
+  annotations:
+    include.release.openshift.io/ibm-cloud-managed: 'true'
+    include.release.openshift.io/self-managed-high-availability: 'true'
+    include.release.openshift.io/single-node-developer: 'true'
+  creationTimestamp: '2022-03-09T15:48:19Z'
+  generation: 1
+  managedFields:
+    - apiVersion: config.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:include.release.openshift.io/ibm-cloud-managed': {}
+            'f:include.release.openshift.io/self-managed-high-availability': {}
+            'f:include.release.openshift.io/single-node-developer': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"dc5c231b-4201-4de8-8840-e454d10d0294"}': {}
+        'f:spec': {}
+      manager: cluster-version-operator
+      operation: Update
+      time: '2022-03-09T15:48:19Z'
+    - apiVersion: config.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          .: {}
+          'f:extension': {}
+      manager: cluster-version-operator
+      operation: Update
+      subresource: status
+      time: '2022-03-09T15:48:20Z'
+    - apiVersion: config.openshift.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:conditions': {}
+          'f:relatedObjects': {}
+      manager: ingress-operator
+      operation: Update
+      subresource: status
+      time: '2022-03-09T16:24:32Z'
+  name: ingress
+  ownerReferences:
+    - apiVersion: config.openshift.io/v1
+      kind: ClusterVersion
+      name: version
+      uid: dc5c231b-4201-4de8-8840-e454d10d0294
+  resourceVersion: '304413'
+  uid: 171a9658-07f2-4fca-b7b2-a70d6ee0bc3b
+spec: {}
+status:
+  conditions:
+    - lastTransitionTime: '2022-03-09T19:35:53Z'
+      message: >-
+        The "default" ingress controller reports Available=False:
+        IngressControllerUnavailable: One or more status conditions indicate
+        unavailable: DNSReady=False (NoZones: The record isn't present in any
+        zones.)
+      reason: IngressUnavailable
+      status: 'False'
+      type: Available
+    - lastTransitionTime: '2022-03-09T16:24:32Z'
+      message: Not all ingress controllers are available.
+      reason: Reconciling
+      status: 'True'
+      type: Progressing
+    - lastTransitionTime: '2022-03-10T06:18:43Z'
+      message: >-
+        The "default" ingress controller reports Degraded=True:
+        DegradedConditions: One or more other status conditions indicate a
+        degraded state: DNSReady=False (NoZones: The record isn't present in any
+        zones.)
+      reason: IngressDegraded
+      status: 'True'
+      type: Degraded
+  extension: null
+  relatedObjects:
+    - group: ''
+      name: openshift-ingress-operator
+      resource: namespaces
+    - group: operator.openshift.io
+      name: ''
+      namespace: openshift-ingress-operator
+      resource: IngressController
+    - group: ingress.operator.openshift.io
+      name: ''
+      namespace: openshift-ingress-operator
+      resource: DNSRecord
+    - group: ''
+      name: openshift-ingress
+      resource: namespaces
+    - group: ''
+      name: openshift-ingress-canary
+      resource: namespaces
+
+
+
+apiVersion: config.openshift.io/v1
+kind: DNS
+metadata:
+  creationTimestamp: null
+  name: cluster
+spec:
+  baseDomain: ocpcluster1.azsdps.labbuildr.com
+  publicZone:
+    id: /subscriptions/c3ce5517-89a1-4c33-a050-8f9a861aa1a4/resourceGroups/dns/providers/Microsoft.Network/dnszones/azsdps.labbuildr.com
+status: {}      
